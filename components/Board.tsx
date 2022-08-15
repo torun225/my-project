@@ -1,10 +1,13 @@
 /** @jsx h */
 import { h } from "preact";
-import { Square } from "../components/Square.tsx";
+import Square from "../islands/Square.tsx";
 import { Head } from "$fresh/src/runtime/head.ts";
+import { useState } from "preact/hooks";
 
 export function Board() {
   const status = "Next player: x";
+  const [squares, setSquares] = useState<number[]>(Array(9).fill(null));
+
   return (
     <div>
       <Head>
@@ -12,24 +15,24 @@ export function Board() {
       </Head>
       <div className="status">{status}</div>
       <div className="board-row">
-        {renderSquare(0)}
-        {renderSquare(1)}
-        {renderSquare(2)}
+        {renderSquare(0, squares)}
+        {renderSquare(1, squares)}
+        {renderSquare(2, squares)}
       </div>
       <div className="board-row">
-        {renderSquare(3)}
-        {renderSquare(4)}
-        {renderSquare(5)}
+        {renderSquare(3, squares)}
+        {renderSquare(4, squares)}
+        {renderSquare(5, squares)}
       </div>
       <div className="board-row">
-        {renderSquare(6)}
-        {renderSquare(7)}
-        {renderSquare(8)}
+        {renderSquare(6, squares)}
+        {renderSquare(7, squares)}
+        {renderSquare(8, squares)}
       </div>
     </div>
   );
 }
 
-function renderSquare(i: number) {
-  return <Square value={i} />;
+function renderSquare(i: number, squares: number[]) {
+  return <Square value={squares[i]} />;
 }
