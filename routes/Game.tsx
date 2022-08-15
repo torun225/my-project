@@ -1,7 +1,7 @@
 /** @jsx h */
 import { h } from "preact";
 import { tw } from "@twind";
-import { Board } from "../components/Board.tsx";
+import Board from "../islands/Board.tsx";
 
 export default function Game() {
   return (

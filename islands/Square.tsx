@@ -2,19 +2,17 @@
 import { h } from "preact";
 import { useEffect, useState } from "preact/hooks";
 
-export default function Square(props: { value: number }) {
-  const [value, setValue] = useState("");
-
+export default function Square(
+  props: { value: string; onClick: () => void },
+) {
   return (
     <button
       className="square"
       onClick={() => {
-        setValue(() => {
-          return "X";
-        });
+        props.onClick();
       }}
     >
-      {value}
+      {props.value}
     </button>
   );
 }
