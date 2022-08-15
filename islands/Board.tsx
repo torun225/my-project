@@ -1,6 +1,6 @@
 /** @jsx h */
 import { h } from "preact";
-import Square from "../islands/Square.tsx";
+import Square from "../components/Square.tsx";
 import { Head } from "$fresh/src/runtime/head.ts";
 import { useState } from "preact/hooks";
 
